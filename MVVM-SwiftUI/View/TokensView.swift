@@ -10,7 +10,6 @@ import SwiftUI
 struct TokensView: View {
     
     @ObservedObject var usersViewModel:UsersViewModel
-    @EnvironmentObject var accountManager:AccountManager
     
     var body: some View {
             VStack {
@@ -33,6 +32,6 @@ struct TokensView: View {
 // MARK:- Preview
 struct TokensView_Previews: PreviewProvider {
     static var previews: some View {
-        TokensView(usersViewModel: UsersViewModel(dataService: DataService()))
+        TokensView(usersViewModel: UsersViewModel())
     }
 }

@@ -12,10 +12,12 @@ class DataService {
     
     private var users = [User]()
     
+    // Retrieve users list
     func getUsersList() -> [User] {
             return self.users
     }
     
+    // Get user by name or create one if none found
     func getUser(name: String, token: String) -> User {
         
         // find and return existing user

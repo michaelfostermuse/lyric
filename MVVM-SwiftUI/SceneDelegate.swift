@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let accountManager = AccountManager(signedIn: false)
+        let accountManager = AccountManager()
         let contentView = LoginView().environmentObject(accountManager)
 
         // Use a UIHostingController as window root view controller.

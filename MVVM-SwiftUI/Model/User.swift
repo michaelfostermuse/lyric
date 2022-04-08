@@ -22,6 +22,7 @@ class User : Codable, Hashable {
         return UUID().uuidString
     }
     
+    // Append new session token to my list
     func addToken(token: String) {
         self.tokens.append(token)
     }

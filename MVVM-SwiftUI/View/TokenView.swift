@@ -10,7 +10,6 @@ import SwiftUI
 struct TokenView: View {
     
     @ObservedObject var usersViewModel:UsersViewModel
-    @EnvironmentObject var accountManager:AccountManager
     @State private var selection: String? = nil
     
     var body: some View {
@@ -39,6 +38,6 @@ struct TokenView: View {
 
 struct TokenView_Previews: PreviewProvider {
     static var previews: some View {
-        TokenView(usersViewModel: UsersViewModel(dataService: DataService()))
+        TokenView(usersViewModel: UsersViewModel())
     }
 }

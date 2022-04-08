@@ -12,7 +12,7 @@ struct LoginView: View {
     @EnvironmentObject var accountManager:AccountManager
     @State private var selection: String? = nil
     var dataService:DataService
-    @StateObject var usersViewModel = UsersViewModel(dataService: DataService())
+    @StateObject var usersViewModel = UsersViewModel()
     @State var userName: String
     
     init() {
@@ -38,13 +38,7 @@ struct LoginView: View {
                             )
                         
                         Button(action: {
-//                            self.accountManager.signIn()
                             self.usersViewModel.signInUser(userName: userName)
-//                            guard let token = self.accountManager.getUid() else {
-//                                return
-//                            }
-//                            let user = self.dataService.getUser(name: userName, token: token)
-//                            self.usersViewModel.currentUser = user
                         }) {
                             Text("Login")
                                 .padding([.leading,.trailing],30)

@@ -12,16 +12,17 @@ class AccountManager : ObservableObject {
     @Published var signedIn:Bool
     private var uid:String? = nil
     
-    init(signedIn:Bool) {
-        self.signedIn = signedIn
+    init() {
+        self.signedIn = false
     }
     
-    // Make sure the API calls once they are finished modify the values on the Main Thread
+    // Sign in user and create a unique ID
     func signIn() {
         self.signedIn = true
         self.uid = UUID().uuidString
     }
     
+    // Return unique ID
     func getUid() -> String? {
         if(self.signedIn){
             return self.uid
@@ -31,6 +32,7 @@ class AccountManager : ObservableObject {
         }
     }
     
+    // Sign out user
     func signOut() {
         self.signedIn = false
         self.uid = nil
