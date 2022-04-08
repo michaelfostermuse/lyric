@@ -1,31 +1,14 @@
-# SwiftUI Review
+Using the MVVM design pattern, and SwiftUI for laying out the views, please build an app that adheres to the layout.
 
-The App use state management for Login.
+Clicking on "Go to Tokens page" should push the second page on to the UI.
 
-- Once logged in, it should take you to a TabBarView.
-- The Tabbar should hold 2 views, and one of them will navigate back and forth with the detailed information of what was clicked.
-- The information in both is a list of items.
+Clicking on "Logout" from either page should present the "Login Screen" as a modal on top of the rest of the UI.
 
-## References
+Clicking on "Login" should always present the first "Name" page even if the second, "Tokens" was where "Logout" was clicked.
 
-### Videos
-* **[Introducing SwiftUI: Building Your First App](https://developer.apple.com/videos/play/wwdc2019/204/)**
-* **[SwiftUI Essentials](https://developer.apple.com/videos/play/wwdc2019/216)**
-* **[Data Flow Through SwiftUI](https://developer.apple.com/videos/play/wwdc2019/226)**
-* **[Building Custom Views with SwiftUI](https://developer.apple.com/videos/play/wwdc2019/237)**
-* **[Integrating SwiftUI](https://developer.apple.com/videos/play/wwdc2019/231)**
-* **[Accessibility in SwiftUI](https://developer.apple.com/videos/play/wwdc2019/238)**
-* **[SwiftUI On All Devices](https://developer.apple.com/videos/play/wwdc2019/240)**
-* **[SwiftUI on watchOS](https://developer.apple.com/videos/play/wwdc2019/219)**
-* **[Mastering Xcode Previews](https://developer.apple.com/videos/play/wwdc2019/233)**
+Created an AccountManager service that manages the logged in/out state, provides the name on the account, and on each new login, generates a randomly generated UUID value for Tokens.
+ 
+This app is backwards compatible such that any iOS 14.x device can run it.
 
-### Tutorials
-* **[Creating and Combining Views](https://developer.apple.com/tutorials/swiftui/creating-and-combining-views)**
-* **[Working with UI Controls](https://developer.apple.com/tutorials/swiftui/working-with-ui-controls)**
-* **[Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)**
-* **[Building Lists and Navigation](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation)**
-* **[Drawing Paths and Shapes](https://developer.apple.com/tutorials/swiftui/drawing-paths-and-shapes)**
-* **[Animating Views and Transitions](https://developer.apple.com/tutorials/swiftui/animating-views-and-transitions)**
-* **[Composing Complex Interfaces](https://developer.apple.com/tutorials/swiftui/composing-complex-interfaces)**
-* **[Interfacing with UIKit](https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit)**
-
+The app follows the flow illustrated.
+![thumbnail](https://user-images.githubusercontent.com/2362373/162496060-26047827-fb9e-4cfc-a389-b36f5666d349.jpg)
