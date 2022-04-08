@@ -9,3 +9,6 @@ Clicking on "Login" should always present the first "Name" page even if the seco
 Created an AccountManager service that manages the logged in/out state, provides the name on the account, and on each new login, generates a randomly generated UUID value for Tokens.
  
 This app is backwards compatible such that any iOS 14.x device can run it.
+
+The app follows the flow illustrated.
+![thumbnail](https://user-images.githubusercontent.com/2362373/162496060-26047827-fb9e-4cfc-a389-b36f5666d349.jpg)
