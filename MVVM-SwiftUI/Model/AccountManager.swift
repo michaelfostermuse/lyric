@@ -31,7 +31,7 @@ class AccountManager : ObservableObject {
         }
     }
     
-    func signOut(){
+    func signOut() {
         self.signedIn = false
         self.uid = nil
     }

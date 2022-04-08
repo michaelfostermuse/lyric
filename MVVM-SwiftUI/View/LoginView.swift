@@ -18,6 +18,7 @@ struct LoginView: View {
     init() {
         self.dataService = DataService()
         self.userName = ""
+        UINavigationBar.setAnimationsEnabled(false)
     }
     
     var body: some View{
@@ -25,37 +26,38 @@ struct LoginView: View {
             ZStack{
                 Image("Image1")
                 VStack {
-                if(!accountManager.signedIn){
-                    TextField("Enter your name", text: $userName)
-                        .padding([.leading,.trailing],30)
-                        .padding([.top,.bottom],15)
-                        .foregroundColor(Color.white)
-                        .background(Color(red: 50/255, green: 50/255, blue: 50/255, opacity: 0.5 ))
-                        .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.blue, lineWidth: 4)
-                        )
-                    
-                    Button(action: {
-                        self.accountManager.signIn()
-                        guard let token = self.accountManager.getUid() else {
-                            return
-                        }
-                        let user = self.dataService.getUser(name: userName, token: token)
-                        self.usersViewModel.currentUser = user
-                    }) {
-                        Text("Login")
+                    if(!usersViewModel.signedIn){
+                        TextField("Enter your name", text: $userName)
                             .padding([.leading,.trailing],30)
                             .padding([.top,.bottom],15)
+                            .foregroundColor(Color.white)
+                            .background(Color(red: 50/255, green: 50/255, blue: 50/255, opacity: 0.5 ))
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.blue, lineWidth: 4)
+                            )
+                        
+                        Button(action: {
+//                            self.accountManager.signIn()
+                            self.usersViewModel.signInUser(userName: userName)
+//                            guard let token = self.accountManager.getUid() else {
+//                                return
+//                            }
+//                            let user = self.dataService.getUser(name: userName, token: token)
+//                            self.usersViewModel.currentUser = user
+                        }) {
+                            Text("Login")
+                                .padding([.leading,.trailing],30)
+                                .padding([.top,.bottom],15)
+                        }
+                        .foregroundColor(.white)
+                        .background(Color(.blue))
+                        .cornerRadius(3)
                     }
-                    .foregroundColor(.white)
-                    .background(Color(.blue))
-                    .cornerRadius(3)
-                }
-                
-                else{
-                    TokenView(usersViewModel: self.usersViewModel)
-                }
+                    
+                    else{
+                        TokenView(usersViewModel: self.usersViewModel)
+                    }
                 }
             }
             .padding(30)

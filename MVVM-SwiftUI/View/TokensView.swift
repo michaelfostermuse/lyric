@@ -23,10 +23,10 @@ struct TokensView: View {
         }
         .onAppear {
             UITableView.appearance().separatorColor = .clear
-            self.usersViewModel.getUsersList(uid: self.accountManager.getUid())
+            self.usersViewModel.getUsersList()
         }
         .navigationBarTitle(Text("Tokens"))
-        .navigationBarItems(trailing: LogOutButton(logOutFunction: accountManager.signOut))
+        .navigationBarItems(trailing: LogOutButton(logOutFunction: usersViewModel.signOut))
     }
 }
 

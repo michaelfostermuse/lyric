@@ -32,7 +32,7 @@ struct TokenView: View {
                            
                         
                     }
-                    .navigationBarItems(trailing: LogOutButton(logOutFunction: accountManager.signOut))
+                    .navigationBarItems(trailing: LogOutButton(logOutFunction: usersViewModel.signOut))
         }
     }
 }
