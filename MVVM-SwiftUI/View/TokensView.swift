@@ -13,7 +13,7 @@ struct TokensView: View {
     @EnvironmentObject var accountManager:AccountManager
     
     var body: some View {
-        ZStack{
+            VStack {
             List{
                 ForEach(usersViewModel.currentUser.tokens ?? [], id: \.self) { token in
                         Text("\(token)")

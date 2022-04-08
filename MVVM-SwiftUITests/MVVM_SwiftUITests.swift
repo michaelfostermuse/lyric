@@ -2,7 +2,6 @@
 //  MVVM_SwiftUITests.swift
 //  lyricTests
 //
-//  Created by Daniel Bastidas Ramirez on 04/10/2019.
 //  Copyright © 2022 Michael Muse. All rights reserved.
 //
 

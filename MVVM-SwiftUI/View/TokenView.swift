@@ -3,7 +3,6 @@
 //  MVVM-SwiftUI
 //
 //  Created by Michael Muse on 4/8/22.
-//  Copyright © 2022 Daniel Bastidas. All rights reserved.
 //
 
 import SwiftUI
@@ -15,6 +14,8 @@ struct TokenView: View {
     @State private var selection: String? = nil
     
     var body: some View {
+        ZStack{
+            Image("Image2")
                     VStack {
                         NavigationLink(destination: TokensView(usersViewModel: self.usersViewModel), tag: "tokens", selection: $selection)  { EmptyView() }
                             Button(action:
@@ -32,6 +33,7 @@ struct TokenView: View {
                         
                     }
                     .navigationBarItems(trailing: LogOutButton(logOutFunction: accountManager.signOut))
+        }
     }
 }
 

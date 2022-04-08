@@ -10,29 +10,32 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var accountManager:AccountManager
+    @State private var selection: String? = nil
     var dataService:DataService
-    var usersViewModel:UsersViewModel
+    @StateObject var usersViewModel = UsersViewModel(dataService: DataService())
     @State var userName: String
     
     init() {
         self.dataService = DataService()
-        self.usersViewModel = UsersViewModel(dataService: dataService)
         self.userName = ""
     }
     
     var body: some View{
         NavigationView {
-            VStack{
-                
+            ZStack{
+                Image("Image1")
+                VStack {
                 if(!accountManager.signedIn){
                     TextField("Enter your name", text: $userName)
                         .padding([.leading,.trailing],30)
                         .padding([.top,.bottom],15)
+                        .foregroundColor(Color.white)
+                        .background(Color(red: 50/255, green: 50/255, blue: 50/255, opacity: 0.5 ))
                         .overlay(
                                 RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.blue, lineWidth: 2)
-                            )
-                        
+                                    .stroke(Color.blue, lineWidth: 4)
+                        )
+                    
                     Button(action: {
                         self.accountManager.signIn()
                         guard let token = self.accountManager.getUid() else {
@@ -49,8 +52,10 @@ struct LoginView: View {
                     .background(Color(.blue))
                     .cornerRadius(3)
                 }
+                
                 else{
                     TokenView(usersViewModel: self.usersViewModel)
+                }
                 }
             }
             .padding(30)

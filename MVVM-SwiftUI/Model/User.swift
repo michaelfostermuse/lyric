@@ -3,7 +3,6 @@
 //  lyric
 //
 //  Created by Michael Muse on 4/7/22.
-//  Copyright © 2022 Daniel Bastidas. All rights reserved.
 //
 
 import Foundation
